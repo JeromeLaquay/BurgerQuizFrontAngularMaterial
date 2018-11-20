@@ -1,0 +1,12 @@
+<mat-card class="card">
+  <div>
+      <h2>Bienvenue sur le Quiz : {{quizInstance.quiz.name}}</h2>
+  </div>
+  <div>
+      <h3>Il y a {{quizInstance.quiz.questions.length}} questions</h3>
+  </div>
+  <div class="attente">
+    Patientez quelques miams que l'animateur démarre le quiz !!
+  </div>    
+  <button mat-stroked-button class="bouton" (click)="questionSuivante()">Commencer</button>
+</mat-card>

@@ -1,0 +1,20 @@
+<html>
+    <body>
+        <mat-card class="card">
+            <div>
+                <h3 class="title">{{question.text}}</h3>
+                <div>
+                    <mat-radio-group class="choix" [(ngModel)]="favoriteChoice" [disabled]="disabledButton()">
+                     <mat-radio-button class="choixButton" *ngFor="let choice of question.choices" [(value)]=choice>
+                            {{choice.value}}
+                        </mat-radio-button>
+                    </mat-radio-group>
+                </div>
+            </div>
+            <div>
+                <button mat-stroked-button class="bouton" (click)="createAnswer()" [disabled]="disabledButton()">Répondre</button>
+                <button mat-stroked-button class="bouton" (click)="questionSuivante()"[disabled]="!disabledButton()">Suivante</button>
+            </div>
+        </mat-card>
+    </body>
+</html>

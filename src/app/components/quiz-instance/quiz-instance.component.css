@@ -1,0 +1,15 @@
+
+
+  button{
+    max-width:120px;
+    min-width: 100px;
+    background-color: rgb(192, 171, 53);
+    color:white;
+    display:block;
+    margin-left:auto;
+    margin-right:auto;
+  }
+
+  mat-card{
+    margin-top:80px;
+  }

@@ -1,0 +1,26 @@
+<html>
+    <body>
+        <mat-card class="card">
+                <h3>{{question.text}}</h3>
+                
+                <div>
+                    <p-table [value]="choiceResults">
+                        <ng-template pTemplate="header">
+                            <tr>
+                                <th>Choix</th>
+                                <th>Nombre de réponses</th>
+                            </tr>
+                        </ng-template>
+                        <ng-template pTemplate="body" let-car>
+                            <tr>
+                                <td>{{car.value}}</td>
+                                <td>{{car.nombreRep}}</td>
+                            </tr>
+                        </ng-template>
+                    </p-table>
+                </div>
+                <button mat-stroked-button class="bouton" (click)="questionSuivante()">Suivante</button>
+        </mat-card>
+        
+    </body>
+</html>

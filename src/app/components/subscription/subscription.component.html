@@ -1,0 +1,19 @@
+<mat-card class="card">
+  <div>
+    <h3 class="title">Inscription</h3>
+  </div>
+  <div>
+    <mat-form-field class="mail">
+      <input matInput placeholder="mail" [(ngModel)]="mail">
+    </mat-form-field>
+  </div>
+  <div>
+    <mat-slide-toggle
+        class="newsletter"
+        (change)="changeNewsletter()">
+      Inscription à la newsletter !
+    </mat-slide-toggle>
+  </div>
+    <button mat-stroked-button class="bouton" (click)="subscription()">Valider</button>
+
+</mat-card>

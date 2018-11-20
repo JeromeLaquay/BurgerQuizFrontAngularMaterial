@@ -1,0 +1,35 @@
+/* You can add global styles to this file, and also import other style files */
+@import '@angular/material/prebuilt-themes/deeppurple-amber.css';
+
+ng-component{
+  margin-top:60px;
+}
+.card {
+  display:block;
+  margin-top:40px;
+  margin-bottom:auto;
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+  background-color:rgb(160, 56, 49);
+}
+
+table{
+  width:100%;
+}
+
+h3, h2{
+  color: white;
+  min-width:200px;
+  display:block;
+  margin-left:auto;
+  margin-right:auto;
+  text-align:center;
+}
+
+mat-radio-button{
+  color: white;
+  margin-top:10px;
+}
+
+

@@ -1,0 +1,17 @@
+.nombre{
+    text-align: center;
+}
+
+.bouton{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    min-width:200px;
+    margin-top:10px;
+    background-color: rgb(192, 171, 53);
+    color:white;
+  }
+
+  mat-card{
+    margin-top:80px;
+  }
