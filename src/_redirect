@@ -1,1 +1,6 @@
 /*     /index.html  200
+/quiz              /
+/quiz/:id_quiz_instance/answers/:id_question  /quiz/:id_quiz_instance/answers/:id_question
+/join_quiz              /join_quiz
+/join_quiz/:id_quiz_instance/question/:num_question              //join_quiz/:id_quiz_instance/question/:num_question
+/subscription       /subscription
