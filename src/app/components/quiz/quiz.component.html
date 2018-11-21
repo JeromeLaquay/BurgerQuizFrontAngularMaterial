@@ -1,4 +1,5 @@
 <mat-card class="card">
+    <h2>Quel quiz veux-tu ?</h2>
     <div>
         <table mat-table [dataSource]="quizs" class="table-quiz">
             <ng-container matColumnDef="name">
@@ -9,9 +10,9 @@
                 <th mat-header-cell *matHeaderCellDef class="nombre"> Nombre de questions </th>
                 <td mat-cell *matCellDef="let quiz" class="nombre"> {{quiz.questions.length}} </td>
             </ng-container>
-            <ng-container matColumnDef="choisir">
-                <th mat-header-cell *matHeaderCellDef> Choisir </th>
-                <td mat-cell *matCellDef="let quiz">
+            <ng-container matColumnDef="choisir" class="choisir">
+                <th mat-header-cell *matHeaderCellDef class="choisir"> Choisir </th>
+                <td mat-cell *matCellDef="let quiz" class="choisir">
                     <button mat-stroked-button class="bouton" (click)="lancer(quiz.id)">Lancer </button>
                 </td>
             </ng-container>

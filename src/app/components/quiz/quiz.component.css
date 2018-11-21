@@ -1,9 +1,20 @@
 
-
-  .nombre{
+  .table-quiz{
     text-align: center;
   }
 
-  mat-card{
-    margin-top:80px;
+  .nombre, .choisir {
+    text-align: center;
+    display:block;
+    margin-left: auto;
+    margin-right: auto;
   }
+
+  .bouton{
+    display: block;
+    margin-top:auto;
+    margin-bottom: auto;
+    margin-left:auto;
+    margin-right:auto;
+  }
+

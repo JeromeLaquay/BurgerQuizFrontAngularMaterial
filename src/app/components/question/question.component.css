@@ -14,22 +14,16 @@
     max-width: 400px;
   }
 
-  .bouton{
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-    min-width:200px;
-    margin-top:10px;
-    background-color: rgb(192, 171, 53);
-    color:white;
-  }
-
   .bouton:disabled,
 .bouton[disabled]{
   background-color:  rgb(146, 126, 11);
   color:white;
+  border-color: rgb(146, 126, 11);
 }
 
-mat-card{
-  margin-top:80px;
+.bouton{
+  display: block;
+  margin-top:20px; 
+  margin-left:auto;
+  margin-right:auto;
 }

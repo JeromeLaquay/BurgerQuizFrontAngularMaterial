@@ -27,10 +27,6 @@
   }
 
   .bouton{
-    max-width:120px;
-    min-width: 100px;
-    background-color: rgb(192, 171, 53);
-    color:white;
     display: block;
     margin-top:20px;
     margin-left:auto;
@@ -38,5 +34,7 @@
   }
 
   mat-card{
-    margin-top:80px;
+    display: block;
+    margin-left: auto;
+    margin-right:auto;
   }

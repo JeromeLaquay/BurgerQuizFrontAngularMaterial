@@ -6,9 +6,7 @@ ng-component{
 }
 .card {
   display:block;
-  margin-top:40px;
-  margin-bottom:auto;
-  max-width: 800px;
+  width : 750px;
   margin-left: auto;
   margin-right: auto;
   background-color:rgb(160, 56, 49);
@@ -16,6 +14,11 @@ ng-component{
 
 table{
   width:100%;
+}
+
+.bouton{
+  background-color: rgb(192, 171, 53);
+  color:white;
 }
 
 h3, h2{
