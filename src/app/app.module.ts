@@ -56,9 +56,12 @@ import { ChoiceService } from './services/choice.service';
 
 
 import {TableModule} from 'primeng/table';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
-  exports:[BrowserModule,
+  exports:[
+    HttpClientModule,
+    BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
     NoopAnimationsModule,
@@ -107,7 +110,7 @@ import {TableModule} from 'primeng/table';
     QuizInstanceComponent
   ],
   imports: [
-    HttpModule,
+    HttpClientModule,
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,

@@ -1,7 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { QuizService } from '../../services/quiz.service';
 import { Router, ActivatedRoute } from '@angular/router';
-import { Quiz } from '../../models/model.quiz';
 import { Question } from '../../models/model.question';
 import { QuizInstance } from '../../models/model.quiz-instance';
 import { QuizInstanceService } from '../../services/quiz-instance.service';
@@ -16,7 +14,7 @@ export class JoinComponent implements OnInit {
   questions:Question[];
   idInstance: number;
 
-  constructor(private quizService :QuizService,
+  constructor(
     private quizInstanceService :QuizInstanceService,
     private route: ActivatedRoute,
     private router: Router) { }
@@ -30,8 +28,8 @@ export class JoinComponent implements OnInit {
 
     console.log("idInstance ="+this.idInstance);
     this.quizInstanceService.getOne(this.idInstance)
-      .subscribe(data => {
-        this.quizInstance = data.json()
+      .subscribe((data: QuizInstance) => {
+        this.quizInstance = data;
         console.log("quizinstance quiz id= "+this.quizInstance.quiz.id);
         console.log("quizinstance quiz id= "+this.quizInstance.quiz.name);
       }
@@ -39,6 +37,6 @@ export class JoinComponent implements OnInit {
   }
 
   questionSuivante(){
-    this.router.navigate(['/join_quiz/'+ this.idInstance+'/questions/0']);
+    this.router.navigate([`/join_quiz/${this.idInstance}/questions/0`]);
     }
 }

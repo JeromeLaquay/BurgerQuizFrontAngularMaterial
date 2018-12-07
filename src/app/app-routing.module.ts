@@ -16,7 +16,7 @@ const routes: Routes = [
   { path: 'subscription', component: SubscriptionComponent},
 
   // otherwise redirect to profile
-  { path: '**', redirectTo: '/question/1' }
+  { path: '**', redirectTo: '/quiz' }
 ];
 
 @NgModule({

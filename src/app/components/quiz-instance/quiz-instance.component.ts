@@ -12,9 +12,9 @@ import { QuizInstanceService } from '../../services/quiz-instance.service';
   styleUrls: ['./quiz-instance.component.css']
 })
 export class QuizInstanceComponent implements OnInit {
-  quiz:Quiz;
-  quizInstance:QuizInstance;
-  questions:Question[];
+  quiz:Quiz=new Quiz();
+  quizInstance:QuizInstance= new QuizInstance();
+  questions:Question[]= [];
   idInstance: number;
 
   constructor(private quizService :QuizService,
@@ -29,12 +29,12 @@ export class QuizInstanceComponent implements OnInit {
 
   getQuiz(){
     this.quizInstanceService.getOne(this.idInstance)
-      .subscribe(data => {
-        this.quizInstance = data.json()
+      .subscribe((data: QuizInstance) => {
+        this.quizInstance = data;
         console.log("quizinstance quiz id= "+this.quizInstance.quiz.id);
         this.quizService.getOne(this.quizInstance.quiz.id)
-        .subscribe(data => {
-          this.quiz = data.json();
+        .subscribe((data: Quiz) => {
+          this.quiz = data;
           this.questions=this.quiz.questions;
           console.log("quiz name= "+this.quiz.name);
           }
@@ -44,6 +44,6 @@ export class QuizInstanceComponent implements OnInit {
   }
 
   demarrerQuestions(){
-    this.router.navigate(['/quiz/'+ this.idInstance+'/answers/0']);
+    this.router.navigate([`/quiz/${this.idInstance}/answers/0`]);
   }
 }

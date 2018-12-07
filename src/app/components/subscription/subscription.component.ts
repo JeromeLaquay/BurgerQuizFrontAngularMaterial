@@ -14,9 +14,7 @@ export class SubscriptionComponent implements OnInit {
   mail : string="";
   newsletter : boolean=false;
 
-  constructor(private userService :UserService,
-    private route: ActivatedRoute,
-    private router: Router) { }
+  constructor(private userService :UserService) { }
 
   ngOnInit() {
   }

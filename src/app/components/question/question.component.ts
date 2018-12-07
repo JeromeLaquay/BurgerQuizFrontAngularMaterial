@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import {QuizInstance} from '../../models/model.quiz-instance';
 import { QuizInstanceService } from '../../services/quiz-instance.service';
 import { AnswerService } from '../../services/answer.service';
-import { ChoiceService } from '../../services/choice.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Choice } from '../../models/model.choice';
 import { Answer } from 'src/app/models/model.answer';
@@ -36,15 +35,12 @@ export class QuestionComponent implements OnInit {
     this.num_question = parseInt(this.route.snapshot.paramMap.get('num_question'));
     this.idinstance = parseInt(this.route.snapshot.paramMap.get('id_instance'));
     this.getQuizInstance();
-    //setTimeout(function () {
-      //location.reload();
-    //}, 5000);
   }
 
   getQuizInstance(){
     this.quizInstanceService.getOne(this.idinstance)
-      .subscribe(data => {
-        this.quizInstance = data.json();
+      .subscribe((data: QuizInstance) => {
+        this.quizInstance = data;
         this.question=this.quizInstance.quiz.questions[this.num_question];
         console.log("question ="+ this.question.text);
         }
@@ -56,8 +52,8 @@ export class QuestionComponent implements OnInit {
     this.answer.choice=this.favoriteChoice;
     this.answer.quiz_instance=this.quizInstance;
     this.answerService.save(this.answer,this.answer.quiz_instance.id,this.answer.choice.id).subscribe(
-      res => {
-                this.answer = res.json();
+      (data: Answer) => {
+                this.answer = data;
                 console.log("Envoyé");
               },
       err => {
@@ -78,7 +74,7 @@ export class QuestionComponent implements OnInit {
         this.router.navigate(['/subscription']);
     }else{
       this.num_question++;
-      this.router.navigate(['/join_quiz/'+ this.idinstance+'/questions/'+this.num_question]);
+      this.router.navigate([`/join_quiz/${this.idinstance}/questions/${this.num_question}`]);
       location.reload();
     }
   }

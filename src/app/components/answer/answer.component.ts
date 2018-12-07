@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import {Question} from '../../models/model.question';
-import {Choice} from '../../models/model.choice';
 import { ActivatedRoute, Router } from '@angular/router';
 import {QuizInstance} from '../../models/model.quiz-instance';
 import { QuizInstanceService } from '../../services/quiz-instance.service';
@@ -36,8 +35,8 @@ export class AnswerComponent implements OnInit {
   getQuizInstance(){
     console.log("idinstance = "+ this.idinstance);
     this.quizInstanceService.getOne(this.idinstance)
-      .subscribe(data => {
-        this.quizInstance = data.json();
+      .subscribe((data: QuizInstance) => {
+        this.quizInstance = data;
         this.question=this.quizInstance.quiz.questions[this.num_question];
         for (let choice of this.question.choices) {
             this.choiceResults[this.i]=new ChoiceResult();
@@ -55,7 +54,7 @@ export class AnswerComponent implements OnInit {
           this.i++;
         }
         for(let choiceResult of this.choiceResults){
-          console.log("choice value nombre ="+choiceResult.value+" "+choiceResult.nombreRep);
+          console.log("choice value nombre =",choiceResult.value," ",choiceResult.nombreRep);
         }
       }
     )
@@ -66,8 +65,9 @@ export class AnswerComponent implements OnInit {
       this.router.navigate(['/subscription']);
     }else{
       this.num_question++;
-      this.router.navigate(['/quiz/'+ this.idinstance+'/answers/'+this.num_question]);
-      location.reload();
+      console.log("num_question: "+ this.num_question);
+      this.router.navigate(['/quiz/', this.idinstance,'/answers/',this.num_question]);
+      //location.reload();
     }
   }
   

@@ -1,12 +1,12 @@
 import { Injectable } from '@angular/core';
-import {Http} from "@angular/http";
+import {HttpClient} from '@angular/common/http';
 import {AppComponent} from "../app.component";
 import {User} from "../models/model.user";
 
 
 @Injectable()
 export class UserService {
-  constructor(public http: Http) { }
+  constructor(public http: HttpClient) { }
 
   getAll(){
     return this.http.get(AppComponent.API_URL+'/users');

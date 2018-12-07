@@ -2,7 +2,10 @@
     <body>
         <mat-card class="card">
                 <h3>{{question.text}}</h3>
-                
+                <h3>{{choiceResults[0].value}}</h3>
+                <h3>{{choiceResults[0].nombreRep}}</h3>
+                <h3>{{choiceResults[1].value}}</h3>
+                <h3>{{choiceResults[1].nombreRep}}</h3>
                 <div>
                     <p-table [value]="choiceResults">
                         <ng-template pTemplate="header">
@@ -18,6 +21,19 @@
                             </tr>
                         </ng-template>
                     </p-table>
+                    <table mat-table [dataSource]="choiceResults" class="mat-elevation-z8">
+                        <ng-container matColumnDef="choix">
+                          <th mat-header-cell *matHeaderCellDef> Choix </th>
+                          <td mat-cell *matCellDef="let element"> {{element.value}} </td>
+                        </ng-container>
+                        <ng-container matColumnDef="nombre">
+                          <th mat-header-cell *matHeaderCellDef> Nombre de réponses </th>
+                          <td mat-cell *matCellDef="let element"> {{element.nombreRep}} </td>
+                        </ng-container>
+                    
+                        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+                    </table>
                 </div>
                 <button mat-stroked-button class="bouton" (click)="questionSuivante()">Suivante</button>
         </mat-card>

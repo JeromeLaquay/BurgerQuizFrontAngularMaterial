@@ -29,18 +29,18 @@ export class QuizComponent implements OnInit {
 
   getAllQuizs(){
     this.quizService.getAll()
-      .subscribe(data => {
-        this.quizs = data.json(); 
+      .subscribe((data: Quiz[]) => {
+        this.quizs = data; 
         console.log("taille ="+ this.quizs.length);}
       )
   }
 
   lancer(idQuiz : number){
     this.quizInstanceService.save(this.quizinstance,idQuiz).subscribe(
-      res => {
+      (data: QuizInstance) => {
               console.log("requete effectuée");
-              this.quizinstance = res.json();
-              this.router.navigate(['/quiz/'+ this.quizinstance.id]);
+              this.quizinstance = data;
+              this.router.navigate([`/quiz/${this.quizinstance.id}`]);
             },
       err => {console.log("Error occured");
       this.errorMessage = "error";}
