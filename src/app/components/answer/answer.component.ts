@@ -67,7 +67,7 @@ export class AnswerComponent implements OnInit {
       this.num_question++;
       console.log("num_question: "+ this.num_question);
       this.router.navigate([`/quiz/${this.idinstance}/answers/${this.num_question}`]);
-      //location.reload();
+      location.reload();
     }
   }
   
