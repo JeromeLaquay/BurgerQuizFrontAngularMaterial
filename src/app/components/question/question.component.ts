@@ -32,9 +32,11 @@ export class QuestionComponent implements OnInit {
 
   ngOnInit() {
     this.disabled;
-    this.num_question = parseInt(this.route.snapshot.paramMap.get('num_question'));
-    this.idinstance = parseInt(this.route.snapshot.paramMap.get('id_instance'));
-    this.getQuizInstance();
+    this.route.params.subscribe((params) => {
+      this.num_question = parseInt(params.num_question);
+      this.idinstance = parseInt(params.id_instance);
+      this.getQuizInstance();
+    });
   }
 
   getQuizInstance(){
@@ -74,8 +76,8 @@ export class QuestionComponent implements OnInit {
         this.router.navigate(['/subscription']);
     }else{
       this.num_question++;
+      this.disabled=false;
       this.router.navigate([`/join_quiz/${this.idinstance}/questions/${this.num_question}`]);
-      location.reload();
     }
   }
 }

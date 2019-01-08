@@ -11,15 +11,7 @@ export class ChoiceService {
     return this.http.get(AppComponent.API_URL+'/choices');
   }
 
-  getOne(id: number){
-    return this.http.get(AppComponent.API_URL+'/choices/'+ id);
-  }
-
   save(choice: Choice){
     return this.http.post(AppComponent.API_URL+'/choices', choice);
-  }
-
-  getByQuestion(idQuestion: number){
-    return this.http.get(AppComponent.API_URL+'/questions/'+ idQuestion+"/choices");
   }
 }

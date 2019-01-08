@@ -6,6 +6,6 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'AngularProject';
-  static API_URL='https://burger-quiz-back.herokuapp.com';   //"http://localhost:9093";
+  title = 'Burger Quiz';
+  static API_URL='https://burger-quiz-back.herokuapp.com'; //   "http://localhost:9093";
 }

@@ -27,13 +27,16 @@ export class AnswerComponent implements OnInit {
     private router: Router) { }
 
   ngOnInit() {
-    this.num_question = parseInt(this.route.snapshot.paramMap.get('num_question'));
-    this.idinstance = parseInt(this.route.snapshot.paramMap.get('id_instance'));
-    this.getQuizInstance();
+    this.route.params.subscribe((params) => {
+      this.i=0;
+      this.num_question = parseInt(params.num_question);
+      this.idinstance = parseInt(params.id_instance);
+      this.getQuizInstance();
+    });
+    
   }
 
   getQuizInstance(){
-    console.log("idinstance = "+ this.idinstance);
     this.quizInstanceService.getOne(this.idinstance)
       .subscribe((data: QuizInstance) => {
         this.quizInstance = data;
@@ -53,9 +56,6 @@ export class AnswerComponent implements OnInit {
           this.choiceResults[this.i].nombreRep=this.nombreReponse;
           this.i++;
         }
-        for(let choiceResult of this.choiceResults){
-          console.log("choice value nombre =",choiceResult.value," ",choiceResult.nombreRep);
-        }
       }
     )
   }
@@ -65,9 +65,7 @@ export class AnswerComponent implements OnInit {
       this.router.navigate(['/subscription']);
     }else{
       this.num_question++;
-      console.log("num_question: "+ this.num_question);
       this.router.navigate([`/quiz/${this.idinstance}/answers/${this.num_question}`]);
-      location.reload();
     }
   }
   

@@ -2,10 +2,6 @@
     <body>
         <mat-card class="card">
                 <h3>{{question.text}}</h3>
-                <h3>{{choiceResults[0].value}}</h3>
-                <h3>{{choiceResults[0].nombreRep}}</h3>
-                <h3>{{choiceResults[1].value}}</h3>
-                <h3>{{choiceResults[1].nombreRep}}</h3>
                 <div>
                     <p-table [value]="choiceResults">
                         <ng-template pTemplate="header">
