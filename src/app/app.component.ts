@@ -7,5 +7,5 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'Burger Quiz';
-  static API_URL=/*'https://burger-quiz-back.herokuapp.com';*/    "http://localhost:9093";
+  static API_URL='https://burger-quiz-back.herokuapp.com';  //  "http://localhost:9093";
 }
