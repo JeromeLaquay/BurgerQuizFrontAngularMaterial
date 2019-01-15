@@ -5,4 +5,5 @@ export class Answer {
   id : number;
   choice: Choice= new Choice();
   quiz_instance:QuizInstance=new QuizInstance();
+  text: string="";
 }

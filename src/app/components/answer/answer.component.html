@@ -1,6 +1,6 @@
 <html>
     <body>
-        <mat-card class="card">
+        <mat-card class="card" *ngIf="typeQuestion()">
                 <h3>{{question.text}}</h3>
                 <div>
                     <p-table [value]="choiceResults">
@@ -32,6 +32,17 @@
                     </table> -->
                 </div>
                 <button mat-stroked-button class="bouton" (click)="questionSuivante()">Suivante</button>
+        </mat-card>
+        <mat-card class="card" *ngIf="!typeQuestion()">
+            <div>
+                <h3 class="title">{{question.text}}</h3>
+                <div>
+                    <h3 class="reponse">la réponse la plus renseignée est : BRAVO</h3>
+                </div>
+            </div>
+            <div>
+                <button mat-stroked-button class="bouton" (click)="questionSuivante()">Suivante</button>
+            </div>
         </mat-card>
         
     </body>

@@ -43,7 +43,6 @@ export class AnswerComponent implements OnInit {
         this.question=this.quizInstance.quiz.questions[this.num_question];
         for (let choice of this.question.choices) {
             this.choiceResults[this.i]=new ChoiceResult();
-            console.log("i = "+this.i);
             this.choiceResults[this.i].value=choice.value;
             this.nombreReponse=0;
             for(let answerChoice of choice.answers){                
@@ -68,5 +67,14 @@ export class AnswerComponent implements OnInit {
       this.router.navigate([`/quiz/${this.idinstance}/answers/${this.num_question}`]);
     }
   }
-  
+
+  typeQuestion(){
+    if(this.question.typequestion == "qcm"){
+      console.log("type question : "+this.question.typequestion+ " true")
+      return true;
+    }else{
+      console.log("type question : "+this.question.typequestion+ " false")
+      return false;
+    }
+  } 
 }

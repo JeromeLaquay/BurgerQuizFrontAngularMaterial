@@ -1,6 +1,6 @@
 <html>
     <body>
-        <mat-card class="card">
+        <mat-card class="card" *ngIf="typeQuestion()">
             <div>
                 <h3 class="title">{{question.text}}</h3>
                 <div>
@@ -10,6 +10,18 @@
                         </mat-radio-button>
                     </mat-radio-group>
                 </div>
+            </div>
+            <div>
+                <button mat-stroked-button class="bouton" (click)="createAnswer()" [disabled]="disabledButton()">Répondre</button>
+                <button mat-stroked-button class="bouton" (click)="questionSuivante()"[disabled]="!disabledButton()">Suivante</button>
+            </div>
+        </mat-card>
+        <mat-card class="card" *ngIf="!typeQuestion()">
+            <div>
+                <h3 class="title">{{question.text}}</h3>
+                <mat-form-field class="reponse">
+                    <input matInput placeholder="reponse" [(ngModel)]="reponse">
+                </mat-form-field>
             </div>
             <div>
                 <button mat-stroked-button class="bouton" (click)="createAnswer()" [disabled]="disabledButton()">Répondre</button>

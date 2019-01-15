@@ -23,6 +23,7 @@ export class QuestionComponent implements OnInit {
   answer : Answer=new Answer();
   errorMessage: string;
   disabled:boolean=false;
+  reponse : string="";
 
   
   constructor(private quizInstanceService :QuizInstanceService,
@@ -44,22 +45,19 @@ export class QuestionComponent implements OnInit {
       .subscribe((data: QuizInstance) => {
         this.quizInstance = data;
         this.question=this.quizInstance.quiz.questions[this.num_question];
-        console.log("question ="+ this.question.text);
         }
       )
   }
 
   createAnswer(){
-    
+    this.answer.text=this.reponse;
     this.answer.choice=this.favoriteChoice;
     this.answer.quiz_instance=this.quizInstance;
     this.answerService.save(this.answer,this.answer.quiz_instance.id,this.answer.choice.id).subscribe(
       (data: Answer) => {
                 this.answer = data;
-                console.log("Envoyé");
               },
       err => {
-                console.log("Error occured");
                 this.errorMessage = "error";
               }
     );
@@ -78,6 +76,16 @@ export class QuestionComponent implements OnInit {
       this.num_question++;
       this.disabled=false;
       this.router.navigate([`/join_quiz/${this.idinstance}/questions/${this.num_question}`]);
+    }
+  }
+
+  typeQuestion(){
+    if(this.question.typequestion == "qcm"){
+      console.log("question type : "+this.question.typequestion+ " true ");
+      return true;
+    }else{
+      console.log("question type : "+this.question.typequestion+ " false");
+      return false;
     }
   }
 }

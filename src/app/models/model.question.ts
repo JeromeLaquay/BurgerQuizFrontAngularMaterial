@@ -4,4 +4,5 @@ export class Question {
   id : number;
   text: string="";
   choices: Choice[]=[];
+  typequestion: string="";
 }
