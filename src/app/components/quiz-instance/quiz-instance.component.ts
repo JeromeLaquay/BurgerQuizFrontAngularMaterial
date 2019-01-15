@@ -44,6 +44,6 @@ export class QuizInstanceComponent implements OnInit {
   }
 
   demarrerQuestions(){
-    this.router.navigate([`/quiz/${this.idInstance}/answers/0`]);
+    this.router.navigate([`/presentateur/${this.idInstance}/reponses/0`]);
   }
 }

@@ -37,6 +37,6 @@ export class JoinComponent implements OnInit {
   }
 
   questionSuivante(){
-    this.router.navigate([`/join_quiz/${this.idInstance}/questions/0`]);
+    this.router.navigate([`/public/${this.idInstance}/questions/0`]);
     }
 }

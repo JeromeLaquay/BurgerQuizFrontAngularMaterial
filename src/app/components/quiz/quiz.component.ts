@@ -40,7 +40,7 @@ export class QuizComponent implements OnInit {
       (data: QuizInstance) => {
               console.log("requete effectuée");
               this.quizinstance = data;
-              this.router.navigate([`/quiz/${this.quizinstance.id}`]);
+              this.router.navigate([`/presentateur/${this.quizinstance.id}`]);
             },
       err => {console.log("Error occured");
       this.errorMessage = "error";}

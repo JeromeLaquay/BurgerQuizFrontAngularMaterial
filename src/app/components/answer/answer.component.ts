@@ -64,7 +64,7 @@ export class AnswerComponent implements OnInit {
       this.router.navigate(['/subscription']);
     }else{
       this.num_question++;
-      this.router.navigate([`/quiz/${this.idinstance}/answers/${this.num_question}`]);
+      this.router.navigate([`/presentateur/${this.idinstance}/reponses/${this.num_question}`]);
     }
   }
 

@@ -20,11 +20,11 @@
             <div>
                 <h3 class="title">{{question.text}}</h3>
                 <mat-form-field class="reponse">
-                    <input matInput placeholder="reponse" [(ngModel)]="reponse">
+                    <input matInput placeholder="reponse" [(ngModel)]="reponse" required="true"> 
                 </mat-form-field>
             </div>
             <div>
-                <button mat-stroked-button class="bouton" (click)="createAnswer()" [disabled]="disabledButton()">Répondre</button>
+                <button mat-stroked-button class="bouton" (click)="createAnswer()" [disabled]="enableButtonRepondre()">Répondre</button>
                 <button mat-stroked-button class="bouton" (click)="questionSuivante()"[disabled]="!disabledButton()">Suivante</button>
             </div>
         </mat-card>

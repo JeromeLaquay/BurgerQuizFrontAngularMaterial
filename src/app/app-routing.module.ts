@@ -8,15 +8,15 @@ import {QuizInstanceComponent} from "./components/quiz-instance/quiz-instance.co
 import {SubscriptionComponent } from './components/subscription/subscription.component';
 
 const routes: Routes = [
-  { path: 'quiz/:id_instance/answers/:num_question', component: AnswerComponent },
-  { path: 'join_quiz/:id_instance', component: JoinComponent },
-  { path: 'join_quiz/:id_instance/questions/:num_question', component: QuestionComponent},
-  { path: 'quiz', component: QuizComponent},
-  { path: 'quiz/:id_instance', component: QuizInstanceComponent},
+  { path: 'presentateur/:id_instance/reponses/:num_question', component: AnswerComponent },
+  { path: 'public/:id_instance', component: JoinComponent },
+  { path: 'public/:id_instance/questions/:num_question', component: QuestionComponent},
+  { path: 'presentateur', component: QuizComponent},
+  { path: 'presentateur/:id_instance', component: QuizInstanceComponent},
   { path: 'subscription', component: SubscriptionComponent},
 
   // otherwise redirect to profile
-  { path: '**', redirectTo: '/quiz' }
+  { path: '**', redirectTo: '/presentateur' }
 ];
 
 @NgModule({

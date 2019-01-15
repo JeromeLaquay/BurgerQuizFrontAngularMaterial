@@ -75,7 +75,7 @@ export class QuestionComponent implements OnInit {
     }else{
       this.num_question++;
       this.disabled=false;
-      this.router.navigate([`/join_quiz/${this.idinstance}/questions/${this.num_question}`]);
+      this.router.navigate([`/public/${this.idinstance}/questions/${this.num_question}`]);
     }
   }
 
@@ -85,6 +85,16 @@ export class QuestionComponent implements OnInit {
       return true;
     }else{
       console.log("question type : "+this.question.typequestion+ " false");
+      return false;
+    }
+  }
+
+  enableButtonRepondre(){
+    if(this.reponse.length == 0 && this.disabledButton()){
+      console.log("true");
+      return true;
+    }else{
+      console.log("false");
       return false;
     }
   }
