@@ -28,7 +28,6 @@ export class AnswerComponent implements OnInit {
 
   ngOnInit() {
     this.route.params.subscribe((params) => {
-      this.i=0;
       this.num_question = parseInt(params.num_question);
       this.idinstance = parseInt(params.id_instance);
       this.getQuizInstance();
@@ -57,6 +56,7 @@ export class AnswerComponent implements OnInit {
         }
       }
     )
+    this.i=0;
   }
 
   questionSuivante(){
@@ -76,5 +76,9 @@ export class AnswerComponent implements OnInit {
       console.log("type question : "+this.question.typequestion+ " false")
       return false;
     }
-  } 
+  }
+  
+  rafraichir(){
+    this.getQuizInstance();
+  }
 }
